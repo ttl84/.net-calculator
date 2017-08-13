@@ -30,10 +30,10 @@ namespace calculator
         private string info;
         public string Info
         {
-            get => input;
+            get => info;
             set
             {
-                input = value;
+                info = value;
                 OnPropertyChanged("Info");
             }
         }

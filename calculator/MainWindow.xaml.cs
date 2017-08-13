@@ -29,7 +29,10 @@ namespace calculator
         {
             Button button = (Button)sender;
             string text = (string)button.Tag;
-            ((ViewModel)DataContext).Input += text;
+            if (text.Length != 0)
+            {
+                ((ViewModel)DataContext).Input += text;
+            }
         }
 
         private void Button_Click_Del(object sender, RoutedEventArgs e)
