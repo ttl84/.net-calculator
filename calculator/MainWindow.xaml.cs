@@ -23,6 +23,16 @@ namespace calculator
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowModel();
+        }
+
+
+
+        private void Button_Click_Number(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            string text = (string)button.Tag;
+            ((MainWindowModel)DataContext).Input += text;
         }
     }
 }
