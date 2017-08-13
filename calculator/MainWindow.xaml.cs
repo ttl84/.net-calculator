@@ -23,7 +23,6 @@ namespace calculator
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowModel();
         }
 
 
