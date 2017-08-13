@@ -9,12 +9,6 @@ namespace calculator
 {
     class ViewModel : INotifyPropertyChanged
     {
-        public ViewModel()
-        {
-            input = "";
-        }
-        private string input;
-
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string property)
         {
@@ -22,6 +16,7 @@ namespace calculator
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
 
+        private string input;
         public string Input
         {
             get => input;
@@ -29,6 +24,17 @@ namespace calculator
             {
                 input = value;
                 OnPropertyChanged("Input");
+            }
+        }
+
+        private string info;
+        public string Info
+        {
+            get => input;
+            set
+            {
+                input = value;
+                OnPropertyChanged("Info");
             }
         }
     }
