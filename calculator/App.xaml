@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:calculator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <local:MainWindowModel x:Key="MainWindowModel" />
+        <local:ViewModel x:Key="MainWindowModel" />
     </Application.Resources>
 </Application>

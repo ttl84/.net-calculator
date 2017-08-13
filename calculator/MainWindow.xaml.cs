@@ -25,13 +25,20 @@ namespace calculator
             InitializeComponent();
         }
 
-
-
-        private void Button_Click_Number(object sender, RoutedEventArgs e)
+        private void Button_Click_Input(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             string text = (string)button.Tag;
-            ((MainWindowModel)DataContext).Input += text;
+            ((ViewModel)DataContext).Input += text;
+        }
+
+        private void Button_Click_Del(object sender, RoutedEventArgs e)
+        {
+            string text = ((ViewModel)DataContext).Input;
+            if (text.Length != 0)
+            {
+                ((ViewModel)DataContext).Input = text.Substring(0, text.Length - 1);
+            }
         }
     }
 }

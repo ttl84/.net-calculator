@@ -43,18 +43,18 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Button Content="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Click="Button_Click_Number" Tag="1"/>
-                <Button Content="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="1" Click="Button_Click_Number" Tag="2"/>
-                <Button Content="3" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="2" Click="Button_Click_Number" Tag="3"/>
-                <Button Content="4" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Row="1" Click="Button_Click_Number" Tag="4"/>
-                <Button Content="5" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="1" Click="Button_Click_Number" Tag="5"/>
-                <Button Content="6" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="2" Grid.Row="1" Click="Button_Click_Number" Tag="6"/>
-                <Button Content="7" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Row="2" Click="Button_Click_Number" Tag="7"/>
-                <Button Content="8" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="2" Click="Button_Click_Number" Tag="8"/>
-                <Button Content="9" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="2" Grid.Row="2" Click="Button_Click_Number" Tag="9"/>
-                <Button Content="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Row="3" Click="Button_Click_Number" Tag="0"/>
-                <Button Content="." HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="3" Click="Button_Click_Number" Tag="."/>
-                <Button Content="DEL" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="2" Grid.Row="3"/>
+                <Button Content="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Click="Button_Click_Input" Tag="1"/>
+                <Button Content="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="1" Click="Button_Click_Input" Tag="2"/>
+                <Button Content="3" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="2" Click="Button_Click_Input" Tag="3"/>
+                <Button Content="4" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Row="1" Click="Button_Click_Input" Tag="4"/>
+                <Button Content="5" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="1" Click="Button_Click_Input" Tag="5"/>
+                <Button Content="6" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="2" Grid.Row="1" Click="Button_Click_Input" Tag="6"/>
+                <Button Content="7" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Row="2" Click="Button_Click_Input" Tag="7"/>
+                <Button Content="8" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="2" Click="Button_Click_Input" Tag="8"/>
+                <Button Content="9" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="2" Grid.Row="2" Click="Button_Click_Input" Tag="9"/>
+                <Button Content="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Row="3" Click="Button_Click_Input" Tag="0"/>
+                <Button Content="." HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="3" Click="Button_Click_Input" Tag="."/>
+                <Button Content="DEL" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10" Grid.Column="2" Grid.Row="3" Click="Button_Click_Del"/>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>

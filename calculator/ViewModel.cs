@@ -7,9 +7,9 @@ using System.ComponentModel;
 
 namespace calculator
 {
-    class MainWindowModel : INotifyPropertyChanged
+    class ViewModel : INotifyPropertyChanged
     {
-        public MainWindowModel()
+        public ViewModel()
         {
             input = "";
         }
