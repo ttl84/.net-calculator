@@ -1,4 +1,4 @@
-﻿namespace calculator.Token
+﻿namespace calculator.Tokenizer
 {
     public class DotToken : Token
     {

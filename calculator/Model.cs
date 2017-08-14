@@ -8,22 +8,23 @@ namespace calculator
 {
     class Model
     {
-        private List<string> tokens;
+        private List<Tokenizer.Token> tokens;
 
         public Model()
         {
-            tokens = new List<string>();
+            tokens = new List<Tokenizer.Token>();
         }
 
         public void PushInput(string text)
         {
+            Tokenizer.Token newToken = Tokenizer.Factory.MakeToken(text);
             if (tokens.Count() == 0)
             {
-                tokens.Add(text);
+                tokens.Add(newToken);
             }
             else
             {
-                tokens.Add(text);
+                tokens.Add(newToken);
             }
         }
 
@@ -38,9 +39,9 @@ namespace calculator
         public string GetExpressionString()
         {
             string text = "";
-            foreach(string token in tokens)
+            foreach(Tokenizer.Token token in tokens)
             {
-                text += token;
+                text += token.Text;
             }
             return text;
         }

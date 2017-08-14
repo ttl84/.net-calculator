@@ -1,6 +1,6 @@
-﻿namespace calculator.Token
+﻿namespace calculator.Tokenizer
 {
-    public static class TokenFactory
+    public static class Factory
     {
         public static Token MakeToken(string text)
         {
