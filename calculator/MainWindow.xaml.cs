@@ -31,7 +31,7 @@ namespace calculator
             string text = (string)button.Tag;
             if (text.Length != 0)
             {
-                ((ViewModel)DataContext).Input += text;
+                ((ViewModel)DataContext).AddInput(text);
             }
         }
 
@@ -40,7 +40,7 @@ namespace calculator
             string text = ((ViewModel)DataContext).Input;
             if (text.Length != 0)
             {
-                ((ViewModel)DataContext).Input = text.Substring(0, text.Length - 1);
+                ((ViewModel)DataContext).RemoveInput();
             }
         }
     }

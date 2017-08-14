@@ -24,7 +24,7 @@
                  VerticalContentAlignment="Stretch" 
                  Margin="10"
                  IsReadOnly="True"
-                 Text="{Binding Input}"/>
+                 Text="{Binding Input, Mode=OneWay}"/>
         <TextBox TextWrapping="Wrap" 
                  FontSize="36" 
                  TextAlignment="Right" 
@@ -33,7 +33,7 @@
                  VerticalContentAlignment="Stretch" 
                  Margin="10"
                  IsReadOnly="True"
-                 Text="{Binding Info}" Grid.Row="1"/>
+                 Text="{Binding Info, Mode=OneWay}" Grid.Row="1"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />

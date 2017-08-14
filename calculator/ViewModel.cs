@@ -20,11 +20,20 @@ namespace calculator
         public string Input
         {
             get => input;
-            set
+            private set
             {
                 input = value;
                 OnPropertyChanged("Input");
             }
+        }
+        public void AddInput(string text)
+        {
+            Input += text;
+        }
+        public void RemoveInput()
+        {
+            string text = Input;
+            Input = text.Substring(0, text.Length - 1);
         }
 
         private string info;
