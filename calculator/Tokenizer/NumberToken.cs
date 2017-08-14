@@ -35,7 +35,7 @@
             {
                 if (HasDot)
                 {
-                    return new ErrorToken(Text + other.Text, "two dots can not be adjacent");
+                    return new ErrorToken(Text + other.Text, "number can not have more than 1 dot");
                 }
                 else
                 {

@@ -17,7 +17,7 @@
         public virtual Token Combine(Token other)
         {
             // assume atomic Token by default, return null to mean can't combine
-            return null;
+            return new ErrorToken(Text + other.Text, "can not combine");
         }
     }
 }

@@ -9,14 +9,17 @@ namespace calculator
     class Model
     {
         private List<Tokenizer.Token> tokens;
+        private string error;
 
         public Model()
         {
             tokens = new List<Tokenizer.Token>();
+            error = null;
         }
 
         public void PushInput(string text)
         {
+            error = null;
             Tokenizer.Token newToken = Tokenizer.Factory.MakeToken(text);
             if (tokens.Count() == 0)
             {
@@ -24,17 +27,36 @@ namespace calculator
             }
             else
             {
-                tokens.Add(newToken);
+                Tokenizer.Token combinedToken = tokens.Last().Combine(newToken);
+                if (combinedToken == null)
+                {
+                    tokens.Add(newToken);
+                }
+                else if (combinedToken is Tokenizer.ErrorToken)
+                {
+                    error = (combinedToken as Tokenizer.ErrorToken).Reason;
+                }
+                else
+                {
+                    tokens[tokens.Count() - 1] = combinedToken;
+                }
             }
         }
 
         public void PopInput()
         {
+            error = null;
             if (tokens.Count() != 0)
             {
                 tokens.RemoveAt(tokens.Count() - 1);
             }
+            else
+            {
+                error = "nothing to delete";
+            }
         }
+
+        
 
         public string GetExpressionString()
         {
@@ -44,6 +66,18 @@ namespace calculator
                 text += token.Text;
             }
             return text;
+        }
+
+        public string GetInfoString()
+        {
+            if (error != null)
+            {
+                return "Error: " + error;
+            }
+            else
+            {
+                return "";
+            }
         }
     }
 }

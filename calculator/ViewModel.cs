@@ -14,6 +14,8 @@ namespace calculator
         public ViewModel()
         {
             model = new Model();
+            Input = "";
+            Info = "";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -37,11 +39,13 @@ namespace calculator
         {
             model.PushInput(text);
             Input = model.GetExpressionString();
+            Info = model.GetInfoString();
         }
         public void RemoveInput()
         {
             model.PopInput();
             Input = model.GetExpressionString();
+            Info = model.GetInfoString();
         }
 
         private string info;
