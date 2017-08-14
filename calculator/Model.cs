@@ -1,25 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace calculator
 {
-    class Model
+    public class Model
     {
         private List<Tokenizer.Token> tokens;
-        private string error;
+        private string _error;
 
         public Model()
         {
             tokens = new List<Tokenizer.Token>();
-            error = null;
+            _error = null;
         }
+
+        
+        public string Error
+        {
+            get => _error;
+            private set
+            {
+                _error = value;
+            }
+        }
+        
 
         public void PushInput(string text)
         {
-            error = null;
+            Error = null;
             Tokenizer.Token newToken = Tokenizer.Factory.MakeToken(text);
             if (tokens.Count() == 0)
             {
@@ -34,7 +42,7 @@ namespace calculator
                 }
                 else if (combinedToken is Tokenizer.ErrorToken)
                 {
-                    error = (combinedToken as Tokenizer.ErrorToken).Reason;
+                    Error = (combinedToken as Tokenizer.ErrorToken).Reason;
                 }
                 else
                 {
@@ -45,18 +53,16 @@ namespace calculator
 
         public void PopInput()
         {
-            error = null;
+            Error = null;
             if (tokens.Count() != 0)
             {
                 tokens.RemoveAt(tokens.Count() - 1);
             }
             else
             {
-                error = "nothing to delete";
+                Error = "nothing to delete";
             }
         }
-
-        
 
         public string GetExpressionString()
         {
@@ -66,18 +72,6 @@ namespace calculator
                 text += token.Text;
             }
             return text;
-        }
-
-        public string GetInfoString()
-        {
-            if (error != null)
-            {
-                return "Error: " + error;
-            }
-            else
-            {
-                return "";
-            }
         }
     }
 }

@@ -39,13 +39,28 @@ namespace calculator
         {
             model.PushInput(text);
             Input = model.GetExpressionString();
-            Info = model.GetInfoString();
+            if (model.Error != null)
+            {
+                Info = "Error: " + model.Error;
+            }
+            else
+            {
+                Info = "";
+            }
+            
         }
         public void RemoveInput()
         {
             model.PopInput();
             Input = model.GetExpressionString();
-            Info = model.GetInfoString();
+            if (model.Error != null)
+            {
+                Info = "Error: " + model.Error;
+            }
+            else
+            {
+                Info = "";
+            }
         }
 
         private string info;
