@@ -63,8 +63,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model.cs" />
+    <Compile Include="Token\BinaryOperatorToken.cs" />
+    <Compile Include="Token\DotToken.cs" />
+    <Compile Include="Token\NumberToken.cs" />
     <Compile Include="Token\Token.cs" />
-    <Compile Include="Token\TokenType.cs" />
+    <Compile Include="Token\TokenFactory.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -11,7 +11,6 @@ namespace calculator.Token
         public Token(string text)
         {
             Text = text;
-            SetType();
         }
         
         private string _text;
@@ -20,15 +19,5 @@ namespace calculator.Token
             get => _text;
             set => _text = value;
         }
-
-        private TokenType _type;
-        public TokenType Type
-        {
-            get => _type;
-            set => _type = value;
-        }
-
-        protected abstract void SetType();
-
     }
 }
