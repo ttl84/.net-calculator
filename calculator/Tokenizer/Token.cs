@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace calculator.Tokenizer
+﻿namespace calculator.Tokenizer
 {
     public abstract class Token
     {
@@ -18,6 +12,12 @@ namespace calculator.Tokenizer
         {
             get => _text;
             set => _text = value;
+        }
+
+        public virtual Token Combine(Token other)
+        {
+            // assume atomic Token by default, return null to mean can't combine
+            return null;
         }
     }
 }

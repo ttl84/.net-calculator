@@ -19,7 +19,7 @@
             }
             else
             {
-                return null;
+                return new ErrorToken(text, "unknown token");
             }
         }
     }
