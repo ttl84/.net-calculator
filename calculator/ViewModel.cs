@@ -9,6 +9,13 @@ namespace calculator
 {
     class ViewModel : INotifyPropertyChanged
     {
+        private Model model;
+
+        public ViewModel()
+        {
+            model = new Model();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string property)
         {
@@ -28,12 +35,13 @@ namespace calculator
         }
         public void AddInput(string text)
         {
-            Input += text;
+            model.PushInput(text);
+            Input = model.GetExpressionString();
         }
         public void RemoveInput()
         {
-            string text = Input;
-            Input = text.Substring(0, text.Length - 1);
+            model.PopInput();
+            Input = model.GetExpressionString();
         }
 
         private string info;
