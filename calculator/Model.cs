@@ -64,14 +64,17 @@ namespace calculator
             }
         }
 
-        public string GetExpressionString()
+        public string ExpressionString
         {
-            string text = "";
-            foreach(Tokenizer.Token token in tokens)
+            get
             {
-                text += token.Text;
+                string text = "";
+                foreach (Tokenizer.Token token in tokens)
+                {
+                    text += token.Text;
+                }
+                return text;
             }
-            return text;
         }
     }
 }

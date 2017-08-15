@@ -38,7 +38,7 @@ namespace calculator
         public void AddInput(string text)
         {
             model.PushInput(text);
-            Input = model.GetExpressionString();
+            Input = model.ExpressionString;
             if (model.Error != null)
             {
                 Info = "Error: " + model.Error;
@@ -52,7 +52,7 @@ namespace calculator
         public void RemoveInput()
         {
             model.PopInput();
-            Input = model.GetExpressionString();
+            Input = model.ExpressionString;
             if (model.Error != null)
             {
                 Info = "Error: " + model.Error;
