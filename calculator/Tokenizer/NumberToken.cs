@@ -47,5 +47,10 @@
                 return null;
             }
         }
+
+        public double Value
+        {
+            get => System.Convert.ToDouble(Text);
+        }
     }
 }
