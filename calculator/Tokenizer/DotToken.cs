@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace calculator.Tokenizer
+﻿namespace calculator.Tokenizer
 {
     class DotToken : IToken
     {
