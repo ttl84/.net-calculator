@@ -38,7 +38,8 @@ namespace calculator
                 }
                 else if (token is Tokenizer.BinaryOperatorToken)
                 {
-                    while (operators.Count() != 0)
+                    var op = token as Tokenizer.BinaryOperatorToken;
+                    while (operators.Count() != 0 && (operators.Peek() as Tokenizer.BinaryOperatorToken).Precedence >= op.Precedence)
                     {
                         yield return operators.Pop();
                     }
