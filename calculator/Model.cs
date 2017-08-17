@@ -6,32 +6,25 @@ namespace calculator
     public class Model
     {
         private List<Tokenizer.IToken> tokens;
-        private string _error;
-        private string _result;
 
         public Model()
         {
             tokens = new List<Tokenizer.IToken>();
-            _error = null;
+            Error= null;
+            Result = null;
         }
 
         
         public string Error
         {
-            get => _error;
-            private set
-            {
-                _error = value;
-            }
+            get;
+            private set;
         }
 
         public string Result
         {
-            get => _result;
-            private set
-            {
-                _result = value;
-            }
+            get;
+            private set;
         }
         
         private static IEnumerable<Tokenizer.IToken> ConvertToPostfix(List<Tokenizer.IToken> tokens)
@@ -70,6 +63,10 @@ namespace calculator
                 }
                 else if (token is Tokenizer.BinaryOperatorToken)
                 {
+                    if (stack.Count() < 2)
+                    {
+                        return null;
+                    }
                     var operation = token as Tokenizer.BinaryOperatorToken;
                     var operand2 = stack.Pop() as Tokenizer.NumberToken;
                     var operand1 = stack.Pop() as Tokenizer.NumberToken;
@@ -88,14 +85,24 @@ namespace calculator
                     stack.Push(new Tokenizer.ErrorToken(token.Text, "unimplemented expression"));
                 }
             }
-            return stack.Peek();
+            if (stack.Count() != 0)
+            {
+                return stack.Peek();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private void Compute()
         {
-            Result = null;
             var result = ComputeExpression(tokens);
-            if (result is Tokenizer.NumberToken)
+            if (result == null)
+            {
+                Result = null;
+            }
+            else if (result is Tokenizer.NumberToken)
             {
                 Result = result.Text;
             }
@@ -137,6 +144,10 @@ namespace calculator
                     tokens[tokens.Count() - 1] = combinedToken;
                 }
             }
+            if (Error == null)
+            {
+                Compute();
+            }
         }
 
         public void PopInput()
@@ -149,6 +160,10 @@ namespace calculator
             else
             {
                 Error = "nothing to delete";
+            }
+            if (Error == null)
+            {
+                Compute();
             }
         }
 

@@ -38,6 +38,10 @@ namespace calculator
             {
                 Info = "Error: " + model.Error;
             }
+            else if (model.Result != null)
+            {
+                Info = model.Result;
+            }
             else
             {
                 Info = "";
@@ -51,6 +55,10 @@ namespace calculator
             if (model.Error != null)
             {
                 Info = "Error: " + model.Error;
+            }
+            else if (model.Result != null)
+            {
+                Info = model.Result;
             }
             else
             {
