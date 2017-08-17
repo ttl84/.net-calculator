@@ -1,17 +1,29 @@
-﻿namespace calculator.Tokenizer
+﻿using System;
+
+namespace calculator.Tokenizer
 {
-    public class ErrorToken : Token
+    class ErrorToken : IToken
     {
-        public ErrorToken(string text, string reason) : base(text)
+        public ErrorToken(string text, string reason)
         {
+            Text = text;
             Reason = reason;
         }
 
-        private string _reason;
+        public string Text
+        {
+            get;
+            set;
+        }
         public string Reason
         {
-            get => _reason;
-            set => _reason = value;
+            get;
+            set;
+        }
+
+        public IToken Combine(IToken other)
+        {
+            return new ErrorToken("", "error tokens can not combine");
         }
     }
 }

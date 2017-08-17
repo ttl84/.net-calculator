@@ -1,9 +1,21 @@
-﻿namespace calculator.Tokenizer
+﻿using System;
+
+namespace calculator.Tokenizer
 {
-    public class DotToken : Token
+    class DotToken : IToken
     {
-        public DotToken(string text) : base(text)
+        public string Text => ".";
+
+        public IToken Combine(IToken other)
         {
+            if (other is NumberToken)
+            {
+                return new NumberToken(Text + other.Text, true);
+            }
+            else
+            {
+                return new ErrorToken(Text, "can not combine");
+            }
         }
     }
 }

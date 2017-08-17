@@ -1,23 +1,12 @@
 ﻿namespace calculator.Tokenizer
 {
-    public abstract class Token
+    interface IToken
     {
-        public Token(string text)
+        string Text
         {
-            Text = text;
-        }
-        
-        private string _text;
-        public string Text
-        {
-            get => _text;
-            set => _text = value;
+            get;
         }
 
-        public virtual Token Combine(Token other)
-        {
-            // assume atomic Token by default, return null to mean can't combine
-            return new ErrorToken(Text + other.Text, "can not combine");
-        }
+        IToken Combine(IToken other);
     }
 }

@@ -1,21 +1,21 @@
 ﻿namespace calculator.Tokenizer
 {
-    public static class Factory
+    static class Factory
     {
-        public static Token MakeToken(string text)
+        public static IToken MakeToken(string text)
         {
             char first = text[0];
             if (first == '.')
             {
-                return new DotToken(text);
+                return new DotToken();
             }
             else if (char.IsDigit(first))
             {
                 return new NumberToken(text);
             }
-            else if (first == '+' || first == '-' || first == '*' || first == '/')
+            else if (first == '+')
             {
-                return new BinaryOperatorToken(text);
+                return new AdditionToken();
             }
             else
             {

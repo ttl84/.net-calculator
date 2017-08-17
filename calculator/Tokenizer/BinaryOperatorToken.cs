@@ -1,35 +1,26 @@
-﻿namespace calculator.Tokenizer
+﻿using System;
+
+namespace calculator.Tokenizer
 {
-    public class BinaryOperatorToken : Token
+    abstract class BinaryOperatorToken : IOperator, IToken
     {
-        public BinaryOperatorToken(string text) : base(text)
+        public abstract int Precedence
         {
+            get;
         }
 
-        public Token Compute(NumberToken a, NumberToken b)
+        public uint Arity => 2;
+
+        public abstract string Text
         {
-            double value = 0;
-            if (Text == "+")
-            {
-                value = a.Value + b.Value;
-            }
-            else if (Text == "-")
-            {
-                value = a.Value - b.Value;
-            }
-            else if (Text == "*")
-            {
-                value = a.Value * b.Value;
-            }
-            else if (Text == "/")
-            {
-                value = a.Value / b.Value;
-            }
-            else
-            {
-                return new ErrorToken(Text, "unimplemented operator");
-            }
-            return new NumberToken(value.ToString());
+            get;
         }
+
+        public IToken Combine(IToken other)
+        {
+            return new ErrorToken("", "can not combine");
+        }
+
+        public abstract double Apply(double a, double b);
     }
 }

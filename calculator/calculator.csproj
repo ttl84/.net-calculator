@@ -63,10 +63,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model.cs" />
+    <Compile Include="Tokenizer\AdditionToken.cs" />
     <Compile Include="Tokenizer\BinaryOperatorToken.cs" />
     <Compile Include="Tokenizer\DotToken.cs" />
     <Compile Include="Tokenizer\ErrorToken.cs" />
     <Compile Include="Tokenizer\NumberToken.cs" />
+    <Compile Include="Tokenizer\IOperator.cs" />
     <Compile Include="Tokenizer\Token.cs" />
     <Compile Include="Tokenizer\Factory.cs" />
     <Compile Include="ViewModel.cs" />
