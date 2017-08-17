@@ -16,7 +16,18 @@
 
         public IToken Combine(IToken other)
         {
-            return new ErrorToken("", "can not combine");
+            if (other is NumberToken)
+            {
+                return null;
+            }
+            else if (other is BinaryOperatorToken)
+            {
+                return new ErrorToken(other.Text, "can not combine two binary operators");
+            }
+            else
+            {
+                return new ErrorToken("", "can not combine");
+            }
         }
 
         public abstract double Apply(double a, double b);

@@ -113,7 +113,11 @@ namespace calculator
         {
             Error = null;
             Tokenizer.IToken newToken = Tokenizer.Factory.MakeToken(text);
-            if (tokens.Count() == 0)
+            if (newToken == null)
+            {
+                Error = "unknown token: " + text;
+            }
+            else if (tokens.Count() == 0)
             {
                 tokens.Add(newToken);
             }

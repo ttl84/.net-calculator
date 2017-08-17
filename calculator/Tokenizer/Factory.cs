@@ -17,9 +17,21 @@
             {
                 return new AdditionToken();
             }
+            else if (first == '-')
+            {
+                return new SubtractionToken();
+            }
+            else if (first == '*')
+            {
+                return new MultiplicationToken();
+            }
+            else if (first == '/')
+            {
+                return new DivisionToken();
+            }
             else
             {
-                return new ErrorToken(text, "unknown token");
+                return null;
             }
         }
     }
