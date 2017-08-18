@@ -36,12 +36,39 @@ namespace calculator
                 {
                     yield return token;
                 }
+                else if (token is Tokenizer.OpenToken)
+                {
+                    operators.Push(token);
+                }
+                else if (token is Tokenizer.CloseToken)
+                {
+                    while (operators.Count() != 0)
+                    {
+                        var op = operators.Pop();
+                        if (op is Tokenizer.OpenToken)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            yield return op;
+                        }
+                    }
+                }
                 else if (token is Tokenizer.BinaryOperatorToken)
                 {
-                    var op = token as Tokenizer.BinaryOperatorToken;
-                    while (operators.Count() != 0 && (operators.Peek() as Tokenizer.BinaryOperatorToken).Precedence >= op.Precedence)
+                    var newOp = token as Tokenizer.BinaryOperatorToken;
+                    while (operators.Count() != 0)
                     {
-                        yield return operators.Pop();
+                        var binOp = operators.Peek() as Tokenizer.BinaryOperatorToken;
+                        if (binOp != null && binOp.Precedence >= newOp.Precedence)
+                        {
+                            yield return operators.Pop();
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     operators.Push(token);
                 }
@@ -78,12 +105,12 @@ namespace calculator
                     }
                     else
                     {
-                        stack.Push(new Tokenizer.ErrorToken("", "not enough arguments"));
+                        return null;
                     }
                 }
                 else
                 {
-                    stack.Push(new Tokenizer.ErrorToken(token.Text, "unimplemented expression"));
+                    return null;
                 }
             }
             if (stack.Count() != 0)

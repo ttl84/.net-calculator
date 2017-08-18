@@ -63,8 +63,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model.cs" />
+    <Compile Include="Tokenizer\CloseToken.cs" />
     <Compile Include="Tokenizer\DivisionToken.cs" />
     <Compile Include="Tokenizer\MultiplicationToken.cs" />
+    <Compile Include="Tokenizer\OpenToken.cs" />
     <Compile Include="Tokenizer\SubtractionToken.cs" />
     <Compile Include="Tokenizer\AdditionToken.cs" />
     <Compile Include="Tokenizer\BinaryOperatorToken.cs" />

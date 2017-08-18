@@ -29,6 +29,14 @@
             {
                 return new DivisionToken();
             }
+            else if (first == '(')
+            {
+                return new OpenToken();
+            }
+            else if (first == ')')
+            {
+                return new CloseToken();
+            }
             else
             {
                 return null;

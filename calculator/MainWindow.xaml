@@ -88,8 +88,8 @@
                 <Button Content="√" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="1" Grid.Row="1"/>
                 <Button Content="log" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="2" Grid.Row="1"/>
                 <Button Content="" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="3" Grid.Row="1"/>
-                <Button Content="(" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="2"/>
-                <Button Content=")" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="2" Grid.Column="1"/>
+                <Button Content="(" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="2" Tag="(" Click="Button_Click_Input"/>
+                <Button Content=")" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="2" Grid.Column="1" Tag=")" Click="Button_Click_Input"/>
                 <Button Content="" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="2" Grid.Column="2"/>
                 <Button Content="" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="2" Grid.Column="3"/>
                 <Button Content="cos" Margin="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="3"/>

@@ -16,17 +16,13 @@
 
         public IToken Combine(IToken other)
         {
-            if (other is NumberToken)
-            {
-                return null;
-            }
-            else if (other is BinaryOperatorToken)
+            if (other is BinaryOperatorToken)
             {
                 return new ErrorToken(other.Text, "can not combine two binary operators");
             }
             else
             {
-                return new ErrorToken("", "can not combine");
+                return null;
             }
         }
 
