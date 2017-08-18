@@ -6,7 +6,14 @@
 
         public IToken Combine(IToken other)
         {
-            return null;
+            if (other is OpenToken)
+            {
+                return new ErrorToken(Text + other.Text, "can not combine close with open");
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

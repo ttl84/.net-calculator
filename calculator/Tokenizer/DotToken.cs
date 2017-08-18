@@ -10,9 +10,13 @@
             {
                 return new NumberToken(Text + other.Text, true);
             }
+            else if (other is DotToken)
+            {
+                return new ErrorToken(Text + other.Text, "can not combine two dots");
+            }
             else
             {
-                return new ErrorToken(Text, "can not combine");
+                return null;
             }
         }
     }
